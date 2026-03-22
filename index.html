@@ -293,14 +293,30 @@ body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(
 <script>
 const SCRIPT_URL='https://script.google.com/macros/s/AKfycbyx6x3BhLp709nxH-7v7-vfmCkF5BXMUgoOBmO_sZ2-YpYVN28ebV06DUFOrb5TCxZV/exec';
 
-// ── JSONP CORS FIX ──
-function jsonpFetch(url,cb){
+// ── LOAD VIA FETCH WITH NO-CORS FALLBACK ──
+async function loadMembers(){
+  showStatus('loading','<span class="spin">&#9696;</span>','Memuat data member...');
+  try{
+    const r=await fetch(SCRIPT_URL+'?action=getAll');
+    const j=await r.json();
+    if(j.status==='ok'){members=j.data||[];renderMembers();hideStatus();return;}
+  }catch(e1){}
   const cbName='ncCb'+Date.now();
-  window[cbName]=function(data){cb(data);delete window[cbName];const el=document.getElementById(cbName);if(el)el.remove();};
+  let done=false;
+  window[cbName]=function(j){
+    done=true;
+    const el=document.getElementById(cbName);if(el)el.remove();
+    delete window[cbName];
+    if(j&&j.status==='ok'){members=j.data||[];renderMembers();hideStatus();}
+    else{showStatus('error','&#10007;','Gagal memuat data!');}
+  };
   const s=document.createElement('script');
-  s.id=cbName;s.src=url+'&callback='+cbName;
-  s.onerror=function(){cb(null);};
+  s.id=cbName;
+  s.src=SCRIPT_URL+'?action=getAll&callback='+cbName;
+  s.onerror=function(){if(!done){showStatus('error','&#10007;','Gagal terhubung!');}};
   document.head.appendChild(s);
+  setTimeout(function(){if(!done&&window[cbName]){delete window[cbName];showStatus('error','&#10007;','Timeout!');}},10000);
+}
   setTimeout(function(){if(window[cbName]){cb(null);delete window[cbName];}},8000);
 }
 
