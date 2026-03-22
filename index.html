@@ -6,16 +6,8 @@
 <title>NUSACYBERA — Biodata Member</title>
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
 <style>
-:root{
-  --bg:#07080f;--bg2:#0d0f1a;
-  --purple:#7c5cfc;--blue:#4facfe;--teal:#00f2fe;
-  --pink:#f857a6;--green:#43e97b;
-  --white:#f0f2ff;--dim:#4a4e6a;--dim2:#6b7099;
-  --glass:rgba(255,255,255,0.04);--glass2:rgba(255,255,255,0.07);
-  --border:rgba(255,255,255,0.08);--border2:rgba(255,255,255,0.12);
-}
-*{margin:0;padding:0;box-sizing:border-box;}
-html{scroll-behavior:smooth;}
+:root{--bg:#07080f;--bg2:#0d0f1a;--purple:#7c5cfc;--blue:#4facfe;--teal:#00f2fe;--pink:#f857a6;--green:#43e97b;--white:#f0f2ff;--dim:#4a4e6a;--dim2:#6b7099;--glass:rgba(255,255,255,0.04);--glass2:rgba(255,255,255,0.07);--border:rgba(255,255,255,0.08);--border2:rgba(255,255,255,0.12);}
+*{margin:0;padding:0;box-sizing:border-box;}html{scroll-behavior:smooth;}
 body{min-height:100vh;background:var(--bg);font-family:'DM Sans',sans-serif;overflow-x:hidden;color:var(--white);}
 .aurora{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;}
 .ab{position:absolute;border-radius:50%;filter:blur(80px);opacity:0.1;animation:bm ease-in-out infinite;}
@@ -144,7 +136,6 @@ body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(
 .adm-fab{width:44px;height:44px;border-radius:50%;background:rgba(248,87,166,0.15);border:1px solid rgba(248,87,166,0.3);color:#f857a6;font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 0.2s;}
 .adm-fab:hover{background:rgba(248,87,166,0.25);}
 @keyframes fabPulse{0%,100%{box-shadow:0 0 0 0 rgba(79,172,254,0.4);}70%{box-shadow:0 0 0 10px rgba(79,172,254,0);}}
-@keyframes winIn{from{opacity:0;transform:translateY(16px) scale(0.96);}to{opacity:1;transform:translateY(0) scale(1);}}
 @keyframes tdot{0%,60%,100%{transform:translateY(0);opacity:0.3;}30%{transform:translateY(-4px);opacity:1;}}
 @keyframes aiGl{0%,100%{box-shadow:0 0 10px rgba(79,172,254,0.2);}50%{box-shadow:0 0 20px rgba(79,172,254,0.5);}}
 .ai-fab{position:fixed;bottom:24px;right:24px;z-index:300;width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,var(--purple),var(--blue));border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:22px;box-shadow:0 4px 18px rgba(124,92,252,0.4);animation:fabPulse 2.5s infinite,glowPop 0.6s ease 2.5s both;transition:transform 0.2s;}
@@ -215,8 +206,7 @@ body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(
     <div class="hero-sub">Profil lengkap seluruh anggota NUSACYBERA</div>
   </div>
   <div id="statusBar" class="status-bar loading hidden">
-    <span id="statusIco"></span>
-    <span id="statusTxt"></span>
+    <span id="statusIco"></span><span id="statusTxt"></span>
   </div>
   <div class="search-wrap">
     <input class="search-inp" id="searchInp" type="text" placeholder="Cari nama member..." oninput="filterMembers()"/>
@@ -248,44 +238,14 @@ body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(
     <div class="modal-title">TAMBAH BIODATA</div>
     <div class="modal-sub">&#9672; ISI DATA KAMU &#9672;</div>
     <div class="note-box">&#9432; Data kamu akan tersimpan di database NUSACYBERA &amp; bisa dilihat semua member. Hanya admin yang bisa edit/hapus.</div>
-    <div class="form-group">
-      <label class="form-label">PILIH AVATAR</label>
-      <div class="emoji-grid" id="emojiGrid"></div>
-      <input type="hidden" id="selEmoji" value="&#128100;"/>
-    </div>
-    <div class="form-group">
-      <label class="form-label">NAMA LENGKAP *</label>
-      <input class="form-inp" id="fName" type="text" placeholder="Nama kamu..."/>
-    </div>
-    <div class="form-group">
-      <label class="form-label">ROLE *</label>
-      <select class="form-sel" id="fRole">
-        <option value="member">&#128101; Member</option>
-        <option value="admin">&#128737; Admin</option>
-        <option value="mod">&#128737; Moderator</option>
-        <option value="owner">&#128081; Owner</option>
-      </select>
-    </div>
-    <div class="form-group">
-      <label class="form-label">DESKRIPSI DIRI</label>
-      <textarea class="form-ta" id="fDesc" placeholder="Ceritakan sedikit tentang dirimu..."></textarea>
-    </div>
-    <div class="form-group">
-      <label class="form-label">NOMOR WHATSAPP (opsional)</label>
-      <input class="form-inp" id="fWa" type="text" placeholder="+62 8xx-xxxx-xxxx"/>
-    </div>
-    <div class="form-group">
-      <label class="form-label">INSTAGRAM (opsional)</label>
-      <input class="form-inp" id="fIg" type="text" placeholder="@username"/>
-    </div>
-    <div class="form-group">
-      <label class="form-label">TIKTOK (opsional)</label>
-      <input class="form-inp" id="fTt" type="text" placeholder="@username"/>
-    </div>
-    <div class="form-group">
-      <label class="form-label">PLATFORM LAIN (opsional)</label>
-      <input class="form-inp" id="fOther" type="text" placeholder="Platform | @username"/>
-    </div>
+    <div class="form-group"><label class="form-label">PILIH AVATAR</label><div class="emoji-grid" id="emojiGrid"></div><input type="hidden" id="selEmoji" value="&#128100;"/></div>
+    <div class="form-group"><label class="form-label">NAMA LENGKAP *</label><input class="form-inp" id="fName" type="text" placeholder="Nama kamu..."/></div>
+    <div class="form-group"><label class="form-label">ROLE *</label><select class="form-sel" id="fRole"><option value="member">&#128101; Member</option><option value="admin">&#128737; Admin</option><option value="mod">&#128737; Moderator</option><option value="owner">&#128081; Owner</option></select></div>
+    <div class="form-group"><label class="form-label">DESKRIPSI DIRI</label><textarea class="form-ta" id="fDesc" placeholder="Ceritakan sedikit tentang dirimu..."></textarea></div>
+    <div class="form-group"><label class="form-label">NOMOR WHATSAPP (opsional)</label><input class="form-inp" id="fWa" type="text" placeholder="+62 8xx-xxxx-xxxx"/></div>
+    <div class="form-group"><label class="form-label">INSTAGRAM (opsional)</label><input class="form-inp" id="fIg" type="text" placeholder="@username"/></div>
+    <div class="form-group"><label class="form-label">TIKTOK (opsional)</label><input class="form-inp" id="fTt" type="text" placeholder="@username"/></div>
+    <div class="form-group"><label class="form-label">PLATFORM LAIN (opsional)</label><input class="form-inp" id="fOther" type="text" placeholder="Platform | @username"/></div>
     <button class="btn-sub" id="btnSimpan" onclick="submitMember()">&#10022; SIMPAN BIODATA</button>
   </div>
 </div>
@@ -295,28 +255,16 @@ body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(
   <div class="modal">
     <button class="modal-close" onclick="closeAdmin()">&#10005;</button>
     <div class="modal-title">ADMIN PANEL</div>
-    <div class="modal-sub">&#9672; MASUKKAN PASSWORD ADMIN &#9672;</div>
-    <div class="form-group">
-      <label class="form-label">PASSWORD ADMIN</label>
-      <input class="form-inp" id="adminKey" type="password" placeholder="Password admin..."/>
-    </div>
-    <div class="form-group">
-      <label class="form-label">ID MEMBER YANG DIHAPUS</label>
-      <input class="form-inp" id="adminDelId" type="text" placeholder="ID member..."/>
-    </div>
+    <div class="modal-sub">&#9672; PASSWORD ADMIN &#9672;</div>
+    <div class="form-group"><label class="form-label">PASSWORD ADMIN</label><input class="form-inp" id="adminKey" type="password" placeholder="Password admin..."/></div>
+    <div class="form-group"><label class="form-label">ID MEMBER</label><input class="form-inp" id="adminDelId" type="text" placeholder="ID member..."/></div>
     <button class="btn-sub" onclick="adminDelete()" style="background:linear-gradient(135deg,#f857a6,#ff4d6d);">&#128465; HAPUS MEMBER</button>
   </div>
 </div>
 
-<!-- ADMIN FAB -->
-<div class="admin-panel">
-  <button class="adm-fab" onclick="openAdmin()" title="Admin Panel">&#128737;</button>
-</div>
-
-<!-- AI FAB -->
+<div class="admin-panel"><button class="adm-fab" onclick="openAdmin()">&#128737;</button></div>
 <button class="ai-fab" onclick="toggleAI()">&#129302;<div class="ai-fab-badge"><div class="ai-fab-dot"></div></div></button>
 
-<!-- AI WINDOW -->
 <div class="ai-win" id="aiWin">
   <div class="ai-win-hd">
     <div class="ai-win-av">&#129302;</div>
@@ -326,7 +274,7 @@ body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(
   <div class="ai-chatbox" id="aiChatBox">
     <div style="display:flex;gap:7px;margin-bottom:9px;">
       <div style="width:26px;height:26px;border-radius:50%;background:rgba(79,172,254,0.1);border:1px solid rgba(79,172,254,0.25);display:flex;align-items:center;justify-content:center;font-size:12px;flex-shrink:0;">&#129302;</div>
-      <div style="max-width:80%;padding:8px 11px;background:rgba(79,172,254,0.07);border:1px solid rgba(79,172,254,0.15);border-radius:10px 10px 10px 3px;font-family:'DM Sans',sans-serif;font-size:12px;line-height:1.6;color:#d0d8ff;">Halo fam! Saya NC-AI &#8212; tanya apa saja tentang NUSACYBERA &amp; biodata member! &#128640;</div>
+      <div style="max-width:80%;padding:8px 11px;background:rgba(79,172,254,0.07);border:1px solid rgba(79,172,254,0.15);border-radius:10px 10px 10px 3px;font-family:'DM Sans',sans-serif;font-size:12px;line-height:1.6;color:#d0d8ff;">Halo fam! Saya NC-AI &#8212; tanya apa saja tentang NUSACYBERA! &#128640;</div>
     </div>
   </div>
   <div class="ai-qwrap">
@@ -343,7 +291,18 @@ body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(
 </div>
 
 <script>
-const SCRIPT_URL='AKfycbyx6x3BhLp709nxH-7v7-vfmCkF5BXMUgoOBmO_sZ2-YpYVN28ebV06DUFOrb5TCxZV';
+const SCRIPT_URL='https://script.google.com/macros/s/AKfycbyx6x3BhLp709nxH-7v7-vfmCkF5BXMUgoOBmO_sZ2-YpYVN28ebV06DUFOrb5TCxZV/exec';
+
+// ── JSONP CORS FIX ──
+function jsonpFetch(url,cb){
+  const cbName='ncCb'+Date.now();
+  window[cbName]=function(data){cb(data);delete window[cbName];const el=document.getElementById(cbName);if(el)el.remove();};
+  const s=document.createElement('script');
+  s.id=cbName;s.src=url+'&callback='+cbName;
+  s.onerror=function(){cb(null);};
+  document.head.appendChild(s);
+  setTimeout(function(){if(window[cbName]){cb(null);delete window[cbName];}},8000);
+}
 
 const emojis=['&#128100;','&#129489;','&#128102;','&#128103;','&#129490;','&#129491;','&#128104;','&#128105;','&#129492;','&#128113;','&#129332;','&#128116;','&#128117;','&#128118;','&#129488;','&#128119;','&#129494;','&#128120;','&#128121;','&#128113;'];
 const eg=document.getElementById('emojiGrid');
@@ -355,14 +314,12 @@ let currentFilter='all';
 function showStatus(type,ico,txt){const bar=document.getElementById('statusBar');bar.className='status-bar '+type;bar.classList.remove('hidden');document.getElementById('statusIco').innerHTML=ico;document.getElementById('statusTxt').textContent=txt;}
 function hideStatus(){document.getElementById('statusBar').classList.add('hidden');}
 
-async function loadMembers(){
+function loadMembers(){
   showStatus('loading','<span class="spin">&#9696;</span>','Memuat data member...');
-  try{
-    const res=await fetch(`${SCRIPT_URL}?action=getAll`);
-    const json=await res.json();
-    if(json.status==='ok'){members=json.data||[];renderMembers();hideStatus();}
-    else{showStatus('error','&#10007;','Gagal memuat data!');}
-  }catch(err){showStatus('error','&#10007;','Tidak bisa terhubung ke database!');console.error(err);}
+  jsonpFetch(`${SCRIPT_URL}?action=getAll`,function(json){
+    if(json&&json.status==='ok'){members=json.data||[];renderMembers();hideStatus();}
+    else{showStatus('error','&#10007;','Gagal memuat! Pastikan Apps Script akses = Semua orang.');}
+  });
 }
 
 function getRoleBadge(role){const map={owner:['rb-owner','&#128081; OWNER'],mod:['rb-mod','&#128737; MODERATOR'],admin:['rb-admin','&#128737; ADMIN'],member:['rb-member','&#128101; MEMBER']};return map[role]||map.member;}
@@ -384,14 +341,8 @@ function renderMembers(){
     const waLink=(m.wa||'').replace(/[^0-9]/g,'');
     const waBtn=m.wa?`<a class="cf-wa" href="https://wa.me/${waLink}" target="_blank"><span>&#128172;</span><span class="cf-wa-txt">CHAT WA</span></a>`:'<div></div>';
     return `<div class="mcard role-${m.role}" style="animation-delay:${idx*0.05}s">
-      <div class="card-top">
-        <div class="avatar av-${m.role}">${m.emoji||'&#128100;'}</div>
-        <div class="card-info">
-          <div class="card-name">${m.nama||'-'}</div>
-          <span class="role-badge ${rbC}">${rbL}</span>
-          ${m.wa?`<div class="card-wa-small">${m.wa}</div>`:''}
-        </div>
-      </div>
+      <div class="card-top"><div class="avatar av-${m.role}">${m.emoji||'&#128100;'}</div>
+      <div class="card-info"><div class="card-name">${m.nama||'-'}</div><span class="role-badge ${rbC}">${rbL}</span>${m.wa?`<div class="card-wa-small">${m.wa}</div>`:''}</div></div>
       ${m.desc?`<div class="card-desc">${m.desc}</div>`:''}
       ${socials.length?`<div class="card-socials">${socials.join('')}</div>`:''}
       <div class="card-footer">${waBtn}<div><div class="cf-ts">${m.timestamp||''}</div><div class="cf-num">#${String(m.id||'').slice(-6)}</div></div></div>
@@ -412,11 +363,11 @@ async function submitMember(){
   btn.disabled=true;btn.innerHTML='&#9696; Menyimpan...';
   const body={action:'add',nama,role:document.getElementById('fRole').value,emoji:document.getElementById('selEmoji').value||emojis[0],desc:document.getElementById('fDesc').value.trim(),wa:document.getElementById('fWa').value.trim(),ig:document.getElementById('fIg').value.trim(),tt:document.getElementById('fTt').value.trim(),other:document.getElementById('fOther').value.trim()};
   try{
-    const res=await fetch(SCRIPT_URL,{method:'POST',body:JSON.stringify(body)});
+    const res=await fetch(SCRIPT_URL,{method:'POST',body:JSON.stringify(body),redirect:'follow'});
     const json=await res.json();
-    if(json.status==='ok'){closeModal();showStatus('success','&#10003;','Biodata berhasil disimpan!');await loadMembers();setTimeout(hideStatus,3000);}
-    else{btn.disabled=false;btn.innerHTML='&#10022; SIMPAN BIODATA';alert('Gagal menyimpan! Coba lagi.');}
-  }catch(err){btn.disabled=false;btn.innerHTML='&#10022; SIMPAN BIODATA';alert('Tidak bisa terhubung ke database!');console.error(err);}
+    if(json.status==='ok'){closeModal();showStatus('success','&#10003;','Biodata berhasil disimpan!');loadMembers();setTimeout(hideStatus,3000);}
+    else{btn.disabled=false;btn.innerHTML='&#10022; SIMPAN BIODATA';alert('Gagal menyimpan!');}
+  }catch(err){btn.disabled=false;btn.innerHTML='&#10022; SIMPAN BIODATA';alert('Tidak bisa terhubung!');console.error(err);}
 }
 
 function openAdmin(){document.getElementById('adminOverlay').classList.add('show');}
@@ -425,24 +376,25 @@ document.getElementById('adminOverlay').addEventListener('click',function(e){if(
 async function adminDelete(){
   const key=document.getElementById('adminKey').value.trim();
   const id=document.getElementById('adminDelId').value.trim();
-  if(!key||!id){alert('Isi password & ID member!');return;}
-  if(!confirm('Yakin hapus member ini?'))return;
+  if(!key||!id){alert('Isi password & ID!');return;}
+  if(!confirm('Yakin hapus?'))return;
   try{
-    const res=await fetch(`${SCRIPT_URL}?action=delete&key=${key}&id=${id}`);
+    const res=await fetch(`${SCRIPT_URL}?action=delete&key=${key}&id=${id}`,{redirect:'follow'});
     const json=await res.json();
-    if(json.status==='ok'){closeAdmin();showStatus('success','&#10003;','Member berhasil dihapus!');await loadMembers();setTimeout(hideStatus,3000);}
+    if(json.status==='ok'){closeAdmin();showStatus('success','&#10003;','Dihapus!');loadMembers();setTimeout(hideStatus,3000);}
     else alert('Gagal: '+json.msg);
   }catch(err){alert('Tidak bisa terhubung!');console.error(err);}
 }
 
 const aiKB={owner:['owner','risky','pendiri'],moderator:['moderator','wildan'],adminLouis:['louis'],adminKing:['king'],allAdmin:['tim admin','semua admin','admin'],join:['cara join','bergabung','gabung'],aturan:['aturan','peraturan','konstitusi'],fitur:['fitur','website','forum'],sosmed:['sosmed','instagram','tiktok'],kontak:['kontak','nomor','hubungi'],creator:['siapa yang buat','pembuat','siapa pembuatmu'],biodata:['biodata','member','anggota','daftar']};
-const aiANS={owner:'RISKY — OWNER & PENDIRI\n\n• Membangun semua fitur dari HP\n• Coding sambil bersekolah\n• Mentor trading forex\n\nKontak: +62 852-3693-6481',moderator:'WILDAN — MODERATOR\n\n• Tangan kanan Owner\n• Menjaga ketertiban\n\nKontak: +62 878-4502-4546',adminLouis:'LOUIS — ADMIN\n\nKontak: +62 889-9124-4493',adminKing:'KING — ADMIN\n\nKontak: +62 895-3322-40998',allAdmin:'Tim Admin:\n&#128081; Risky — Owner\n&#128737; Wildan — Moderator\n&#128737; Louis — Admin\n&#128737; King — Admin',join:'Cara join:\n\n1. Tap BERGABUNG di website\n2. website-nc-delta.vercel.app\n\nGratis!',aturan:'Aturan:\n&#10003; Ngobrol santai\n&#10003; Buka 24 jam\n&#10007; Konten tidak pantas\n&#10007; Rasisme\n\nPelanggaran I: Peringatan\nPelanggaran II: Kick',fitur:'Fitur live:\n• Website v1, v2, v3\n• Forum\n• Laporan & Keluar\n• Sosmed Hub\n• Trading Forex\n• Biodata Member (ini!)',sosmed:'Sosmed:\n&#128247; @nusa_cybera\n&#127925; @nusacybera.official5\n&#128241; @NusaCybera',kontak:'Kontak admin:\n&#128081; Risky: +62 852-3693-6481\n&#128737; Wildan: +62 878-4502-4546\n&#128737; Louis: +62 889-9124-4493\n&#128737; King: +62 895-3322-40998',creator:'NC-AI dibuat oleh Risky!\n\nOwner NUSACYBERA yang membangun semua dari HP.\n\nUpdate setiap minggu!',biodata:()=>`Biodata NUSACYBERA:\n\nTotal: ${members.length} member\n&#128081; Owner: ${members.filter(m=>m.role==='owner').length}\n&#128737; Mod: ${members.filter(m=>m.role==='mod').length}\n&#128737; Admin: ${members.filter(m=>m.role==='admin').length}\n&#128101; Member: ${members.filter(m=>m.role==='member').length}\n\nData tersimpan di Google Sheets!`};
-function getAIReply(msg){const l=msg.toLowerCase();if(aiKB.creator.some(k=>l.includes(k)))return aiANS.creator;if(aiKB.owner.some(k=>l.includes(k)))return aiANS.owner;if(aiKB.moderator.some(k=>l.includes(k)))return aiANS.moderator;if(aiKB.adminLouis.some(k=>l.includes(k)))return aiANS.adminLouis;if(aiKB.adminKing.some(k=>l.includes(k)))return aiANS.adminKing;if(aiKB.allAdmin.some(k=>l.includes(k)))return aiANS.allAdmin;if(aiKB.biodata.some(k=>l.includes(k)))return typeof aiANS.biodata==='function'?aiANS.biodata():aiANS.biodata;for(const[k,kws]of Object.entries(aiKB)){if(Array.isArray(kws)&&kws.some(kw=>l.includes(kw))&&aiANS[k]){const v=aiANS[k];return typeof v==='function'?v(l):v;}}return 'Maaf saya belum tahu itu!\n\nCoba tanya:\n• Member NUSACYBERA?\n• Owner / Admin?\n• Cara join?\n• Kontak admin?';}
+const aiANS={owner:'RISKY — OWNER & PENDIRI\n\n• Membangun semua fitur dari HP\n• Coding sambil bersekolah\n• Mentor trading forex\n\nKontak: +62 852-3693-6481',moderator:'WILDAN — MODERATOR\n\n• Tangan kanan Owner\n• Menjaga ketertiban\n\nKontak: +62 878-4502-4546',adminLouis:'LOUIS — ADMIN\n\nKontak: +62 889-9124-4493',adminKing:'KING — ADMIN\n\nKontak: +62 895-3322-40998',allAdmin:'Tim Admin:\n&#128081; Risky — Owner\n&#128737; Wildan — Moderator\n&#128737; Louis — Admin\n&#128737; King — Admin',join:'Cara join:\n\n1. Tap BERGABUNG di website\n2. website-nc-delta.vercel.app\n\nGratis!',aturan:'Aturan:\n&#10003; Ngobrol santai\n&#10003; Buka 24 jam\n&#10007; Konten tidak pantas\n&#10007; Rasisme',fitur:'Fitur live:\n• Website v1, v2, v3\n• Forum\n• Laporan & Keluar\n• Biodata Member (ini!)',sosmed:'Sosmed:\n&#128247; @nusa_cybera\n&#127925; @nusacybera.official5',kontak:'Kontak:\n&#128081; Risky: +62 852-3693-6481\n&#128737; Wildan: +62 878-4502-4546\n&#128737; Louis: +62 889-9124-4493\n&#128737; King: +62 895-3322-40998',creator:'NC-AI dibuat oleh Risky!\n\nOwner NUSACYBERA yang membangun semua dari HP!',biodata:()=>`Biodata:\nTotal: ${members.length} member\n&#128081; Owner: ${members.filter(m=>m.role==='owner').length}\n&#128737; Mod: ${members.filter(m=>m.role==='mod').length}\n&#128737; Admin: ${members.filter(m=>m.role==='admin').length}\n&#128101; Member: ${members.filter(m=>m.role==='member').length}`};
+function getAIReply(msg){const l=msg.toLowerCase();if(aiKB.creator.some(k=>l.includes(k)))return aiANS.creator;if(aiKB.owner.some(k=>l.includes(k)))return aiANS.owner;if(aiKB.moderator.some(k=>l.includes(k)))return aiANS.moderator;if(aiKB.adminLouis.some(k=>l.includes(k)))return aiANS.adminLouis;if(aiKB.adminKing.some(k=>l.includes(k)))return aiANS.adminKing;if(aiKB.allAdmin.some(k=>l.includes(k)))return aiANS.allAdmin;if(aiKB.biodata.some(k=>l.includes(k)))return typeof aiANS.biodata==='function'?aiANS.biodata():aiANS.biodata;for(const[k,kws]of Object.entries(aiKB)){if(Array.isArray(kws)&&kws.some(kw=>l.includes(kw))&&aiANS[k]){const v=aiANS[k];return typeof v==='function'?v(l):v;}}return 'Maaf belum tahu!\n\nCoba tanya:\n• Member?\n• Owner/Admin?\n• Cara join?\n• Kontak?';}
 function aiAddMsg(txt,isUser){const c=document.getElementById('aiChatBox');const d=document.createElement('div');d.style.cssText=`display:flex;gap:7px;margin-bottom:9px;${isUser?'flex-direction:row-reverse;':''}`;const av=document.createElement('div');av.style.cssText=`width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;flex-shrink:0;${isUser?'background:rgba(124,92,252,0.15);border:1px solid rgba(124,92,252,0.3);':'background:rgba(79,172,254,0.1);border:1px solid rgba(79,172,254,0.25);'}`;av.innerHTML=isUser?'&#128100;':'&#129302;';const bub=document.createElement('div');bub.style.cssText=`max-width:80%;padding:8px 11px;border-radius:10px;font-family:'DM Sans',sans-serif;font-size:12px;line-height:1.6;${isUser?'background:rgba(124,92,252,0.12);border:1px solid rgba(124,92,252,0.2);color:#f0f2ff;border-radius:10px 10px 3px 10px;':'background:rgba(79,172,254,0.07);border:1px solid rgba(79,172,254,0.15);color:#d0d8ff;border-radius:10px 10px 10px 3px;'}`;bub.innerHTML=txt.replace(/\n/g,'<br/>');d.appendChild(av);d.appendChild(bub);c.appendChild(d);c.scrollTop=c.scrollHeight;}
 function aiShowTyping(){const c=document.getElementById('aiChatBox');const d=document.createElement('div');d.id='aiTyp';d.style.cssText='display:flex;gap:7px;margin-bottom:9px;';d.innerHTML='<div style="width:26px;height:26px;border-radius:50%;background:rgba(79,172,254,0.1);border:1px solid rgba(79,172,254,0.25);display:flex;align-items:center;justify-content:center;font-size:12px;">&#129302;</div><div style="padding:8px 12px;background:rgba(79,172,254,0.07);border:1px solid rgba(79,172,254,0.15);border-radius:10px 10px 10px 3px;display:flex;gap:4px;align-items:center;"><span style="width:5px;height:5px;border-radius:50%;background:#4facfe;display:inline-block;animation:tdot 1.2s ease-in-out infinite;"></span><span style="width:5px;height:5px;border-radius:50%;background:#4facfe;display:inline-block;animation:tdot 1.2s ease-in-out 0.2s infinite;"></span><span style="width:5px;height:5px;border-radius:50%;background:#4facfe;display:inline-block;animation:tdot 1.2s ease-in-out 0.4s infinite;"></span></div>';c.appendChild(d);c.scrollTop=c.scrollHeight;}
 function aiSend(){const i=document.getElementById('aiInp');const m=i.value.trim();if(!m)return;aiAddMsg(m,true);i.value='';aiShowTyping();setTimeout(()=>{const t=document.getElementById('aiTyp');if(t)t.remove();aiAddMsg(getAIReply(m),false);},700+Math.random()*400);}
 function aiQ(q){document.getElementById('aiInp').value=q;aiSend();}
 function toggleAI(){const w=document.getElementById('aiWin');const o=w.style.display==='flex';w.style.display=o?'none':'flex';if(!o)document.getElementById('aiInp').focus();}
+
 loadMembers();
 </script>
 </body>
