@@ -1,1 +1,413 @@
 
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>NUSACYBERA — Biodata Member</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --bg:#07080f;--bg2:#0d0f1a;--bg3:#111420;
+  --purple:#7c5cfc;--blue:#4facfe;--teal:#00f2fe;
+  --pink:#f857a6;--green:#43e97b;--orange:#fa8231;
+  --white:#f0f2ff;--dim:#4a4e6a;--dim2:#6b7099;
+  --glass:rgba(255,255,255,0.04);--glass2:rgba(255,255,255,0.07);
+  --border:rgba(255,255,255,0.08);--border2:rgba(255,255,255,0.12);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{min-height:100vh;background:var(--bg);font-family:'DM Sans',sans-serif;overflow-x:hidden;color:var(--white);}
+.aurora{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;}
+.aurora-blob{position:absolute;border-radius:50%;filter:blur(80px);opacity:0.12;animation:blobMove ease-in-out infinite;}
+.a1{width:500px;height:500px;background:var(--purple);top:-100px;left:-100px;animation-duration:12s;}
+.a2{width:400px;height:400px;background:var(--blue);top:30%;right:-80px;animation-duration:15s;animation-delay:-5s;}
+.a3{width:350px;height:350px;background:var(--pink);bottom:-80px;left:20%;animation-duration:18s;animation-delay:-8s;}
+.a4{width:300px;height:300px;background:var(--teal);top:50%;left:40%;animation-duration:10s;animation-delay:-3s;}
+@keyframes blobMove{0%,100%{transform:translate(0,0) scale(1);}33%{transform:translate(30px,-20px) scale(1.05);}66%{transform:translate(-20px,30px) scale(0.95);}}
+@keyframes fadeDown{from{opacity:0;transform:translateY(-20px);}to{opacity:1;transform:translateY(0);}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(30px);}to{opacity:1;transform:translateY(0);}}
+@keyframes fadeLeft{from{opacity:0;transform:translateX(-24px);}to{opacity:1;transform:translateX(0);}}
+@keyframes fadeRight{from{opacity:0;transform:translateX(24px);}to{opacity:1;transform:translateX(0);}}
+@keyframes scaleIn{from{opacity:0;transform:scale(0.88);}to{opacity:1;transform:scale(1);}}
+@keyframes glowPop{0%{opacity:0;transform:scale(0.7);}60%{opacity:1;transform:scale(1.08);}100%{transform:scale(1);}}
+@keyframes shimmer{0%{background-position:-200% center;}100%{background-position:200% center;}}
+@keyframes scanLine{0%{top:-2px;}100%{top:110%;}}
+@keyframes countUp{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:translateY(0);}}
+.splash{position:fixed;inset:0;z-index:999;background:var(--bg);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;animation:splashOut 0.5s ease 1.6s both;}
+@keyframes splashOut{to{opacity:0;pointer-events:none;visibility:hidden;}}
+.splash-shield{animation:glowPop 0.6s ease 0.2s both;filter:drop-shadow(0 0 30px var(--purple));}
+.splash-title{font-family:'Syne',sans-serif;font-size:22px;font-weight:800;letter-spacing:6px;background:linear-gradient(135deg,var(--purple),var(--blue),var(--teal));background-size:200% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:fadeUp 0.5s ease 0.5s both,shimmer 2s linear 0.5s infinite;}
+.splash-sub{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--dim2);letter-spacing:4px;animation:fadeUp 0.5s ease 0.75s both;}
+.splash-bar{width:160px;height:2px;background:var(--border);border-radius:2px;overflow:hidden;animation:fadeUp 0.4s ease 0.9s both;}
+.splash-prog{height:100%;background:linear-gradient(90deg,var(--purple),var(--blue),var(--teal));border-radius:2px;animation:progFill 1s ease 0.9s both;}
+@keyframes progFill{from{width:0;}to{width:100%;}}
+.splash-scan{position:absolute;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,rgba(124,92,252,0.5),transparent);animation:scanLine 1.5s linear 0.9s 1;}
+.topbar{animation:fadeDown 0.5s ease 1.7s both;}
+.hero-tag{animation:fadeUp 0.5s ease 1.8s both;}
+.hero-title{animation:fadeUp 0.55s ease 1.9s both;}
+.hero-sub{animation:fadeUp 0.5s ease 2.0s both;}
+.search-wrap{animation:fadeUp 0.5s ease 2.1s both;}
+.filters{animation:fadeUp 0.5s ease 2.2s both;}
+.add-btn{animation:fadeUp 0.5s ease 2.3s both;}
+.pg-foot{animation:fadeUp 0.4s ease 2.4s both;}
+.ai-fab{animation:glowPop 0.6s ease 2.5s both;}
+body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(rgba(124,92,252,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(124,92,252,0.04) 1px,transparent 1px);background-size:40px 40px;z-index:0;pointer-events:none;}
+.topbar{position:fixed;top:0;left:0;right:0;z-index:100;height:56px;background:rgba(7,8,15,0.85);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);display:flex;align-items:center;padding:0 20px;gap:12px;}
+.tb-logo{display:flex;align-items:center;gap:8px;}
+.tb-shield{width:28px;height:32px;filter:drop-shadow(0 0 8px var(--purple));}
+.tb-brand{font-family:'Syne',sans-serif;font-size:13px;font-weight:800;letter-spacing:3px;background:linear-gradient(135deg,var(--purple),var(--blue),var(--teal));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.tb-badge{font-family:'JetBrains Mono',monospace;font-size:8px;padding:3px 8px;border-radius:20px;background:rgba(124,92,252,0.15);border:1px solid rgba(124,92,252,0.3);color:var(--purple);letter-spacing:2px;margin-left:4px;}
+.tb-right{margin-left:auto;display:flex;align-items:center;gap:10px;}
+.tb-count{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--dim2);letter-spacing:1px;}
+.tb-dot{width:6px;height:6px;border-radius:50%;background:var(--green);box-shadow:0 0 8px var(--green);animation:dp 2s infinite;}
+@keyframes dp{0%,100%{opacity:1;}50%{opacity:0.3;}}
+.main{position:relative;z-index:1;padding:76px 20px 40px;max-width:640px;margin:0 auto;}
+.hero{text-align:center;margin-bottom:32px;padding:28px 20px;}
+.hero-tag{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--purple);letter-spacing:4px;margin-bottom:10px;}
+.hero-title{font-family:'Syne',sans-serif;font-size:32px;font-weight:800;letter-spacing:2px;background:linear-gradient(135deg,var(--white),rgba(240,242,255,0.7));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:6px;}
+.hero-sub{font-family:'DM Sans',sans-serif;font-size:14px;color:var(--dim2);letter-spacing:1px;}
+.search-wrap{margin-bottom:24px;position:relative;}
+.search-inp{width:100%;padding:13px 44px 13px 16px;background:var(--glass2);border:1px solid var(--border2);border-radius:12px;color:var(--white);font-family:'DM Sans',sans-serif;font-size:14px;outline:none;transition:all 0.3s;}
+.search-inp::placeholder{color:var(--dim);}
+.search-inp:focus{border-color:rgba(124,92,252,0.4);background:rgba(124,92,252,0.06);box-shadow:0 0 0 3px rgba(124,92,252,0.1);}
+.search-ico{position:absolute;right:14px;top:50%;transform:translateY(-50%);color:var(--dim);font-size:16px;pointer-events:none;}
+.filters{display:flex;gap:8px;margin-bottom:24px;flex-wrap:wrap;}
+.filter-btn{padding:6px 14px;border-radius:20px;border:1px solid var(--border);background:var(--glass);color:var(--dim2);font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:1px;cursor:pointer;transition:all 0.2s;}
+.filter-btn:hover{border-color:rgba(124,92,252,0.3);color:var(--white);}
+.filter-btn.active{background:rgba(124,92,252,0.15);border-color:rgba(124,92,252,0.4);color:var(--purple);}
+.filter-btn.f-mod.active{background:rgba(79,172,254,0.12);border-color:rgba(79,172,254,0.35);color:var(--blue);}
+.filter-btn.f-admin.active{background:rgba(0,242,254,0.08);border-color:rgba(0,242,254,0.25);color:var(--teal);}
+.filter-btn.f-member.active{background:rgba(67,233,123,0.08);border-color:rgba(67,233,123,0.25);color:var(--green);}
+.members-grid{display:flex;flex-direction:column;gap:14px;}
+.mcard{background:var(--glass);border:1px solid var(--border);border-radius:16px;padding:20px;position:relative;overflow:hidden;transition:all 0.3s;animation:cardIn 0.4s ease both;}
+@keyframes cardIn{from{opacity:0;transform:translateY(16px);}to{opacity:1;transform:translateY(0);}}
+.mcard::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(124,92,252,0.4),transparent);}
+.mcard:hover{border-color:rgba(124,92,252,0.25);background:rgba(124,92,252,0.05);transform:translateY(-2px);box-shadow:0 8px 32px rgba(0,0,0,0.3);}
+.mcard.role-owner::before{background:linear-gradient(90deg,transparent,rgba(248,87,166,0.6),transparent);}
+.mcard.role-owner{border-color:rgba(248,87,166,0.15);}
+.mcard.role-owner:hover{border-color:rgba(248,87,166,0.3);background:rgba(248,87,166,0.04);}
+.mcard.role-mod::before{background:linear-gradient(90deg,transparent,rgba(79,172,254,0.5),transparent);}
+.mcard.role-mod{border-color:rgba(79,172,254,0.12);}
+.mcard.role-admin::before{background:linear-gradient(90deg,transparent,rgba(0,242,254,0.4),transparent);}
+.mcard.role-admin{border-color:rgba(0,242,254,0.1);}
+.mcard.role-member::before{background:linear-gradient(90deg,transparent,rgba(67,233,123,0.3),transparent);}
+.card-top{display:flex;align-items:flex-start;gap:14px;margin-bottom:14px;}
+.avatar{width:52px;height:52px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-size:20px;font-weight:800;flex-shrink:0;position:relative;}
+.av-owner{background:linear-gradient(135deg,rgba(248,87,166,0.3),rgba(124,92,252,0.2));border:1.5px solid rgba(248,87,166,0.4);box-shadow:0 0 20px rgba(248,87,166,0.15);}
+.av-mod{background:linear-gradient(135deg,rgba(79,172,254,0.2),rgba(0,242,254,0.1));border:1.5px solid rgba(79,172,254,0.3);}
+.av-admin{background:linear-gradient(135deg,rgba(0,242,254,0.15),rgba(124,92,252,0.1));border:1.5px solid rgba(0,242,254,0.25);}
+.av-member{background:linear-gradient(135deg,rgba(67,233,123,0.12),rgba(79,172,254,0.08));border:1.5px solid rgba(67,233,123,0.2);}
+.av-emoji{font-size:24px;line-height:1;}
+.card-info{flex:1;}
+.card-name{font-family:'Syne',sans-serif;font-size:16px;font-weight:700;color:var(--white);margin-bottom:4px;letter-spacing:0.5px;}
+.card-role-wrap{display:flex;align-items:center;gap:6px;margin-bottom:4px;}
+.role-badge{font-family:'JetBrains Mono',monospace;font-size:8px;padding:2px 8px;border-radius:6px;letter-spacing:1px;}
+.rb-owner{background:rgba(248,87,166,0.15);color:var(--pink);border:1px solid rgba(248,87,166,0.3);}
+.rb-mod{background:rgba(79,172,254,0.12);color:var(--blue);border:1px solid rgba(79,172,254,0.25);}
+.rb-admin{background:rgba(0,242,254,0.08);color:var(--teal);border:1px solid rgba(0,242,254,0.2);}
+.rb-member{background:rgba(67,233,123,0.08);color:var(--green);border:1px solid rgba(67,233,123,0.18);}
+.card-wa{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--dim2);}
+.card-desc{font-family:'DM Sans',sans-serif;font-size:13px;color:var(--dim2);line-height:1.7;margin-bottom:14px;padding:10px 12px;background:rgba(0,0,0,0.2);border-radius:8px;border-left:2px solid rgba(124,92,252,0.3);}
+.mcard.role-owner .card-desc{border-left-color:rgba(248,87,166,0.4);}
+.mcard.role-mod .card-desc{border-left-color:rgba(79,172,254,0.35);}
+.mcard.role-admin .card-desc{border-left-color:rgba(0,242,254,0.25);}
+.mcard.role-member .card-desc{border-left-color:rgba(67,233,123,0.2);}
+.card-socials{display:flex;flex-wrap:wrap;gap:6px;}
+.soc-btn{display:flex;align-items:center;gap:5px;padding:5px 10px;border-radius:8px;background:var(--glass2);border:1px solid var(--border);text-decoration:none;transition:all 0.2s;font-family:'JetBrains Mono',monospace;font-size:8px;letter-spacing:0.5px;}
+.soc-btn:hover{background:rgba(124,92,252,0.1);border-color:rgba(124,92,252,0.3);}
+.soc-btn .si{font-size:12px;}
+.soc-btn .st{color:var(--dim2);}
+.soc-btn:hover .st{color:var(--white);}
+.card-footer{display:flex;align-items:center;justify-content:space-between;margin-top:12px;padding-top:10px;border-top:1px solid var(--border);}
+.cf-wa{display:flex;align-items:center;gap:6px;text-decoration:none;padding:6px 12px;border-radius:8px;background:rgba(37,211,102,0.08);border:1px solid rgba(37,211,102,0.2);transition:all 0.2s;}
+.cf-wa:hover{background:rgba(37,211,102,0.15);}
+.cf-wa-txt{font-family:'JetBrains Mono',monospace;font-size:8px;color:#25d366;letter-spacing:1px;}
+.cf-num{font-family:'JetBrains Mono',monospace;font-size:8px;color:var(--dim);letter-spacing:1px;}
+.add-btn{width:100%;padding:16px;border-radius:14px;border:1px dashed rgba(124,92,252,0.3);background:rgba(124,92,252,0.04);color:var(--purple);font-family:'Syne',sans-serif;font-size:13px;font-weight:700;letter-spacing:2px;cursor:pointer;transition:all 0.3s;display:flex;align-items:center;justify-content:center;gap:8px;margin-top:8px;}
+.add-btn:hover{background:rgba(124,92,252,0.1);border-color:rgba(124,92,252,0.5);}
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.7);backdrop-filter:blur(8px);z-index:200;display:none;align-items:center;justify-content:center;padding:20px;}
+.modal-overlay.show{display:flex;}
+.modal{background:var(--bg2);border:1px solid var(--border2);border-radius:20px;width:100%;max-width:480px;max-height:85vh;overflow-y:auto;padding:24px;position:relative;animation:modIn 0.3s ease;}
+@keyframes modIn{from{opacity:0;transform:scale(0.95);}to{opacity:1;transform:scale(1);}}
+.modal-close{position:absolute;top:16px;right:16px;width:30px;height:30px;border-radius:8px;background:var(--glass2);border:1px solid var(--border);color:var(--dim2);font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 0.2s;}
+.modal-close:hover{background:rgba(248,87,166,0.1);border-color:rgba(248,87,166,0.3);color:var(--pink);}
+.modal-title{font-family:'Syne',sans-serif;font-size:18px;font-weight:800;color:var(--white);margin-bottom:4px;letter-spacing:1px;}
+.modal-sub{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--dim);letter-spacing:2px;margin-bottom:20px;}
+.form-group{margin-bottom:14px;}
+.form-label{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--dim2);letter-spacing:2px;margin-bottom:6px;display:block;}
+.form-inp{width:100%;padding:10px 12px;background:var(--glass);border:1px solid var(--border);border-radius:10px;color:var(--white);font-family:'DM Sans',sans-serif;font-size:13px;outline:none;transition:all 0.3s;}
+.form-inp:focus{border-color:rgba(124,92,252,0.4);background:rgba(124,92,252,0.05);}
+.form-inp::placeholder{color:var(--dim);}
+.form-sel{width:100%;padding:10px 12px;background:var(--glass);border:1px solid var(--border);border-radius:10px;color:var(--white);font-family:'DM Sans',sans-serif;font-size:13px;outline:none;cursor:pointer;appearance:none;}
+.form-sel option{background:var(--bg2);color:var(--white);}
+.form-ta{width:100%;padding:10px 12px;background:var(--glass);border:1px solid var(--border);border-radius:10px;color:var(--white);font-family:'DM Sans',sans-serif;font-size:13px;outline:none;resize:vertical;min-height:80px;transition:all 0.3s;}
+.form-ta:focus{border-color:rgba(124,92,252,0.4);}
+.form-ta::placeholder{color:var(--dim);}
+.btn-submit{width:100%;padding:13px;border-radius:12px;border:none;background:linear-gradient(135deg,var(--purple),var(--blue));color:#fff;font-family:'Syne',sans-serif;font-size:13px;font-weight:700;letter-spacing:2px;cursor:pointer;transition:all 0.3s;margin-top:6px;}
+.btn-submit:hover{opacity:0.9;transform:translateY(-1px);}
+.emoji-grid{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px;}
+.emoji-opt{width:36px;height:36px;border-radius:8px;background:var(--glass);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:18px;cursor:pointer;transition:all 0.2s;}
+.emoji-opt:hover,.emoji-opt.selected{background:rgba(124,92,252,0.15);border-color:rgba(124,92,252,0.4);}
+.empty{text-align:center;padding:40px 20px;color:var(--dim);}
+.empty-ico{font-size:40px;margin-bottom:10px;}
+.empty-txt{font-family:'DM Sans',sans-serif;font-size:14px;}
+.pg-foot{text-align:center;padding:24px 0 10px;border-top:1px solid var(--border);margin-top:16px;}
+.pg-foot-b{font-family:'Syne',sans-serif;font-size:12px;font-weight:800;letter-spacing:4px;background:linear-gradient(135deg,var(--purple),var(--blue),var(--teal));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.pg-foot-s{font-family:'JetBrains Mono',monospace;font-size:7px;color:var(--dim);letter-spacing:3px;margin-top:3px;}
+.hidden{display:none!important;}
+</style>
+</head>
+<body>
+
+<!-- SPLASH SCREEN -->
+<div class="splash" id="splash">
+  <div class="splash-scan"></div>
+  <svg class="splash-shield" width="70" height="80" viewBox="0 0 60 68" fill="none">
+    <path d="M30 3 L57 14 L57 40 Q57 56 30 65 Q3 56 3 40 L3 14 Z" fill="#0d0f1a" stroke="url(#spg)" stroke-width="1.5"/>
+    <path d="M30 10 L50 19 L50 38 Q50 52 30 59 Q10 52 10 38 L10 19 Z" fill="none" stroke="rgba(124,92,252,0.2)" stroke-width="1"/>
+    <text x="30" y="44" font-family="serif" font-size="18" font-weight="900" fill="url(#sptg)" text-anchor="middle">NC</text>
+    <defs>
+      <linearGradient id="spg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#7c5cfc"/><stop offset="100%" stop-color="#4facfe"/></linearGradient>
+      <linearGradient id="sptg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#f0f2ff"/><stop offset="100%" stop-color="#7c5cfc"/></linearGradient>
+    </defs>
+  </svg>
+  <div class="splash-title">NUSACYBERA</div>
+  <div class="splash-sub">&#9672; BIODATA MEMBER &#9672;</div>
+  <div class="splash-bar"><div class="splash-prog"></div></div>
+</div>
+
+<div class="aurora">
+  <div class="aurora-blob a1"></div>
+  <div class="aurora-blob a2"></div>
+  <div class="aurora-blob a3"></div>
+  <div class="aurora-blob a4"></div>
+</div>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <div class="tb-logo">
+    <svg class="tb-shield" viewBox="0 0 60 68" fill="none">
+      <path d="M30 3 L57 14 L57 40 Q57 56 30 65 Q3 56 3 40 L3 14 Z" fill="#0d0f1a" stroke="url(#tsg)" stroke-width="1.5"/>
+      <text x="30" y="44" font-family="serif" font-size="18" font-weight="900" fill="url(#ttg)" text-anchor="middle">NC</text>
+      <defs>
+        <linearGradient id="tsg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#7c5cfc"/><stop offset="100%" stop-color="#4facfe"/></linearGradient>
+        <linearGradient id="ttg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#f0f2ff"/><stop offset="100%" stop-color="#7c5cfc"/></linearGradient>
+      </defs>
+    </svg>
+    <div class="tb-brand">NUSACYBERA</div>
+    <div class="tb-badge">BIODATA</div>
+  </div>
+  <div class="tb-right">
+    <div class="tb-count" id="memberCount">0 MEMBER</div>
+    <div class="tb-dot"></div>
+  </div>
+</div>
+
+<!-- MAIN -->
+<div class="main">
+  <div class="hero">
+    <div class="hero-tag">&#9672; DIREKTORI KOMUNITAS &#9672;</div>
+    <div class="hero-title">BIODATA MEMBER</div>
+    <div class="hero-sub">Profil lengkap seluruh anggota NUSACYBERA</div>
+  </div>
+  <div class="search-wrap">
+    <input class="search-inp" id="searchInp" type="text" placeholder="Cari nama member..." oninput="filterMembers()"/>
+    <div class="search-ico">&#128269;</div>
+  </div>
+  <div class="filters">
+    <div class="filter-btn active" onclick="setFilter('all',this)">SEMUA</div>
+    <div class="filter-btn f-owner" onclick="setFilter('owner',this)">&#128081; OWNER</div>
+    <div class="filter-btn f-mod" onclick="setFilter('mod',this)">&#128737; MODERATOR</div>
+    <div class="filter-btn f-admin" onclick="setFilter('admin',this)">&#128737; ADMIN</div>
+    <div class="filter-btn f-member" onclick="setFilter('member',this)">&#128101; MEMBER</div>
+  </div>
+  <div class="members-grid" id="membersGrid"></div>
+  <div class="empty hidden" id="emptyState">
+    <div class="empty-ico">&#128269;</div>
+    <div class="empty-txt">Tidak ada member ditemukan</div>
+  </div>
+  <button class="add-btn" onclick="openModal()">&#43; TAMBAH BIODATA MEMBER</button>
+  <div class="pg-foot">
+    <div class="pg-foot-b">NUSACYBERA</div>
+    <div class="pg-foot-s">DIREKTORI MEMBER RESMI &#127470;&#127465;</div>
+  </div>
+</div>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal()">&#10005;</button>
+    <div class="modal-title">TAMBAH BIODATA</div>
+    <div class="modal-sub">&#9672; ISI DATA MEMBER BARU &#9672;</div>
+    <div class="form-group">
+      <label class="form-label">PILIH AVATAR</label>
+      <div class="emoji-grid" id="emojiGrid"></div>
+      <input type="hidden" id="selectedEmoji" value="&#128100;"/>
+    </div>
+    <div class="form-group">
+      <label class="form-label">NAMA LENGKAP *</label>
+      <input class="form-inp" id="fName" type="text" placeholder="Nama member..."/>
+    </div>
+    <div class="form-group">
+      <label class="form-label">ROLE *</label>
+      <select class="form-sel" id="fRole">
+        <option value="member">&#128101; Member</option>
+        <option value="admin">&#128737; Admin</option>
+        <option value="mod">&#128737; Moderator</option>
+        <option value="owner">&#128081; Owner</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label class="form-label">DESKRIPSI DIRI</label>
+      <textarea class="form-ta" id="fDesc" placeholder="Ceritakan sedikit tentang dirimu..."></textarea>
+    </div>
+    <div class="form-group">
+      <label class="form-label">NOMOR WHATSAPP (opsional)</label>
+      <input class="form-inp" id="fWa" type="text" placeholder="+62 8xx-xxxx-xxxx"/>
+    </div>
+    <div class="form-group">
+      <label class="form-label">INSTAGRAM (opsional)</label>
+      <input class="form-inp" id="fIg" type="text" placeholder="@username"/>
+    </div>
+    <div class="form-group">
+      <label class="form-label">TIKTOK (opsional)</label>
+      <input class="form-inp" id="fTt" type="text" placeholder="@username"/>
+    </div>
+    <div class="form-group">
+      <label class="form-label">PLATFORM LAIN (opsional)</label>
+      <input class="form-inp" id="fOther" type="text" placeholder="Platform | @username"/>
+    </div>
+    <button class="btn-submit" onclick="submitMember()">&#10022; SIMPAN BIODATA</button>
+  </div>
+</div>
+
+<script>
+const emojis=['&#128100;','&#129489;','&#128102;','&#128103;','&#129490;','&#129491;','&#128104;','&#128105;','&#129492;','&#128113;','&#129332;','&#128116;','&#129333;','&#128117;','&#128118;','&#129488;','&#128119;','&#129494;','&#128120;','&#128121;'];
+const emojiGrid=document.getElementById('emojiGrid');
+emojis.forEach((e,i)=>{const d=document.createElement('div');d.className='emoji-opt'+(i===0?' selected':'');d.innerHTML=e;d.onclick=()=>{document.querySelectorAll('.emoji-opt').forEach(x=>x.classList.remove('selected'));d.classList.add('selected');document.getElementById('selectedEmoji').value=e;};emojiGrid.appendChild(d);});
+
+let members=[
+  {id:1,name:'Risky',role:'owner',emoji:'&#128081;',desc:'Pendiri & Owner NUSACYBERA. Membangun semua fitur komunitas dari nol menggunakan HP sambil bersekolah. Mentor trading forex & tidak pernah berhenti berinovasi untuk komunitas ini.',wa:'+62 852-3693-6481',ig:'',tt:'',other:''},
+  {id:2,name:'Wildan',role:'mod',emoji:'&#128737;',desc:'Moderator NUSACYBERA. Tangan kanan Owner Risky yang selalu siap menjaga ketertiban & kenyamanan komunitas. Siap menggantikan Owner saat berhalangan.',wa:'+62 878-4502-4546',ig:'',tt:'',other:''},
+  {id:3,name:'Louis',role:'admin',emoji:'&#128737;',desc:'Admin NUSACYBERA yang aktif menyambut member baru & menjaga ketertiban harian komunitas.',wa:'+62 838-5768-4032',ig:'',tt:'',other:''},
+  {id:4,name:'King',role:'admin',emoji:'&#128737;',desc:'Admin NUSACYBERA yang membantu operasional harian & memastikan komunitas berjalan dengan baik.',wa:'+62 895-3322-40998',ig:'',tt:'',other:''},
+];
+let currentFilter='all';let nextId=5;
+
+function getRoleBadge(role){const map={owner:['rb-owner','&#128081; OWNER'],mod:['rb-mod','&#128737; MODERATOR'],admin:['rb-admin','&#128737; ADMIN'],member:['rb-member','&#128101; MEMBER']};return map[role]||map.member;}
+
+function renderMembers(){
+  const grid=document.getElementById('membersGrid');
+  const empty=document.getElementById('emptyState');
+  const search=document.getElementById('searchInp').value.toLowerCase();
+  const filtered=members.filter(m=>{const matchRole=currentFilter==='all'||m.role===currentFilter;const matchSearch=m.name.toLowerCase().includes(search)||m.desc.toLowerCase().includes(search);return matchRole&&matchSearch;});
+  document.getElementById('memberCount').textContent=members.length+' MEMBER';
+  if(filtered.length===0){grid.innerHTML='';empty.classList.remove('hidden');return;}
+  empty.classList.add('hidden');
+  grid.innerHTML=filtered.map((m,idx)=>{
+    const[rbClass,rbLabel]=getRoleBadge(m.role);
+    const socials=[];
+    if(m.ig)socials.push(`<a class="soc-btn" href="https://instagram.com/${m.ig.replace('@','')}" target="_blank"><span class="si">&#128247;</span><span class="st">${m.ig}</span></a>`);
+    if(m.tt)socials.push(`<a class="soc-btn" href="https://tiktok.com/${m.tt}" target="_blank"><span class="si">&#127925;</span><span class="st">${m.tt}</span></a>`);
+    if(m.other){const[pl,un]=m.other.split('|');if(pl&&un)socials.push(`<a class="soc-btn" href="#" target="_blank"><span class="si">&#127760;</span><span class="st">${un.trim()}</span></a>`);}
+    const waLink=m.wa?m.wa.replace(/[^0-9]/g,''):'';
+    const waBtn=m.wa?`<a class="cf-wa" href="https://wa.me/${waLink}" target="_blank"><span>&#128172;</span><span class="cf-wa-txt">CHAT WA</span></a>`:'<div></div>';
+    return `<div class="mcard role-${m.role}" style="animation-delay:${idx*0.06}s">
+      <div class="card-top">
+        <div class="avatar av-${m.role}"><span class="av-emoji">${m.emoji}</span></div>
+        <div class="card-info">
+          <div class="card-name">${m.name}</div>
+          <div class="card-role-wrap"><span class="role-badge ${rbClass}">${rbLabel}</span></div>
+          ${m.wa?`<div class="card-wa">${m.wa}</div>`:''}
+        </div>
+      </div>
+      ${m.desc?`<div class="card-desc">${m.desc}</div>`:''}
+      ${socials.length?`<div class="card-socials">${socials.join('')}</div>`:''}
+      <div class="card-footer">${waBtn}<div class="cf-num">#${String(m.id).padStart(3,'0')}</div></div>
+    </div>`;
+  }).join('');
+}
+
+function setFilter(f,el){currentFilter=f;document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));el.classList.add('active');renderMembers();}
+function filterMembers(){renderMembers();}
+function openModal(){document.getElementById('modalOverlay').classList.add('show');document.getElementById('fName').focus();}
+function closeModal(){document.getElementById('modalOverlay').classList.remove('show');['fName','fDesc','fWa','fIg','fTt','fOther'].forEach(id=>document.getElementById(id).value='');document.getElementById('fRole').value='member';document.querySelectorAll('.emoji-opt').forEach((e,i)=>{e.classList.toggle('selected',i===0);});document.getElementById('selectedEmoji').value=emojis[0];}
+function submitMember(){const name=document.getElementById('fName').value.trim();if(!name){alert('Nama tidak boleh kosong!');return;}const emoji=document.getElementById('selectedEmoji').value||emojis[0];const role=document.getElementById('fRole').value;const desc=document.getElementById('fDesc').value.trim();const wa=document.getElementById('fWa').value.trim();const ig=document.getElementById('fIg').value.trim();const tt=document.getElementById('fTt').value.trim();const other=document.getElementById('fOther').value.trim();members.push({id:nextId++,name,role,emoji,desc,wa,ig,tt,other});closeModal();renderMembers();}
+document.getElementById('modalOverlay').addEventListener('click',function(e){if(e.target===this)closeModal();});
+renderMembers();
+
+const aiKB={join:['cara join','bergabung','daftar','gabung','masuk'],aturan:['aturan','peraturan','rule','larangan','konstitusi'],owner:['owner','risky','pendiri','founder'],moderator:['moderator','wildan'],adminLouis:['louis'],adminKing:['king'],allAdmin:['tim admin','semua admin','pengurus','admin'],fitur:['fitur','feature','website','forum','trading','laporan'],sosmed:['sosmed','instagram','tiktok','upscrolled','sosial media'],about:['apa itu','tentang nusacybera','komunitas','nc itu'],kontak:['kontak','nomor','hubungi'],creator:['siapa yang buat','pembuat','dibuat oleh','creator','siapa pembuatmu'],biodata:['biodata','profil','member','anggota','daftar member','siapa saja'],cariMember:['cari','temukan','ada member','ada anggota'],};
+const aiANS={join:'Cara bergabung NUSACYBERA:\n\n1. Tap tombol JOIN di website\n2. Atau buka: website-nc-delta.vercel.app\n\nGratis & terbuka untuk semua!',aturan:'Aturan NUSACYBERA:\n\nDisilakan:\n✓ Ngobrol santai & bercanda bebas\n✓ Grup terbuka 24 JAM\n\nDilarang:\n✗ Konten tidak pantas\n✗ Rasisme\n✗ Memaksa keyakinan\n\nPelanggaran I: Peringatan\nPelanggaran II: Dikeluarkan',owner:'RISKY — OWNER & PENDIRI\n\n• Membangun semua fitur dari HP\n• Coding sambil bersekolah\n• Mentor trading forex\n• Tidak pernah berhenti berinovasi!\n\nKontak: +62 852-3693-6481',moderator:'WILDAN — MODERATOR\n\n• Tangan kanan Owner Risky\n• Menjaga ketertiban komunitas\n• Menggantikan Owner jika berhalangan\n\nKontak: +62 878-4502-4546',adminLouis:'LOUIS — ADMIN\n\n• Menyambut member baru\n• Operasional harian grup\n• Menjaga ketertiban\n\nKontak: +62 838-5768-4032',adminKing:'KING — ADMIN\n\n• Menyambut member baru\n• Operasional harian grup\n• Menjaga ketertiban\n\nKontak: +62 895-3322-40998',allAdmin:'Tim Admin NUSACYBERA:\n\n👑 Risky — Owner & Pendiri\n🛡️ Wildan — Moderator\n🛡️ Louis — Admin\n🛡️ King — Admin\n\nMau tahu lebih detail? Tanya aja!',fitur:'Fitur NUSACYBERA yang live:\n\n• Website v1, v2, v3\n• Forum Komunitas\n• Laporan & Keluar Grup\n• Social Media Hub\n• Spesial Lebaran\n• Trading Forex\n• Biodata Member (ini!)\n\nSemua berbasis link!',sosmed:'Sosial Media NUSACYBERA:\n\n📸 Instagram: @nusa_cybera\n🎵 TikTok: @nusacybera.official5\n📱 UpScrolled: @NusaCybera\n\nFollow semua ya!',about:'NUSACYBERA adalah komunitas digital Indonesia!\n\nBerbasis WhatsApp dengan ekosistem digital seperti aplikasi.\n\n• 10 anggota aktif\n• 7+ fitur live\n• Terbuka 24/7\n\nDibangun dari HP oleh Risky!',kontak:'Kontak resmi admin:\n\n👑 Risky: +62 852-3693-6481\n🛡️ Wildan: +62 878-4502-4546\n🛡️ Louis: +62 838-5768-4032\n🛡️ King: +62 895-3322-40998',creator:'NC-AI dibuat oleh Risky!\n\nRisky adalah Owner & Pendiri NUSACYBERA yang membangun saya dari nol menggunakan HP!\n\n• Dibuat sepenuhnya oleh Risky\n• Masih dalam pengembangan aktif\n• Diperbarui setiap 1 minggu sekali',biodata:()=>{const total=members.length;const owners=members.filter(m=>m.role==='owner').length;const mods=members.filter(m=>m.role==='mod').length;const admins=members.filter(m=>m.role==='admin').length;const mems=members.filter(m=>m.role==='member').length;return `Direktori Biodata NUSACYBERA:\n\nTotal: ${total} member\n👑 Owner: ${owners}\n🛡️ Moderator: ${mods}\n🛡️ Admin: ${admins}\n👥 Member: ${mems}\n\nGunakan Search & Filter untuk mencari member!`;},cariMember:(msg)=>{const found=members.filter(m=>msg.includes(m.name.toLowerCase()));if(found.length>0){return `Ketemu! Biodata ${found[0].name}:\n\nRole: ${found[0].role.toUpperCase()}\nDeskripsi: ${found[0].desc||'-'}\nWA: ${found[0].wa||'-'}`;}return `Coba gunakan kotak pencarian!\n\nMember yang ada: ${members.map(m=>m.name).join(', ')}`;},};
+function getAIReply(msg){const l=msg.toLowerCase();if(aiKB.creator.some(k=>l.includes(k)))return aiANS.creator;if(aiKB.owner.some(k=>l.includes(k)))return aiANS.owner;if(aiKB.moderator.some(k=>l.includes(k)))return aiANS.moderator;if(aiKB.adminLouis.some(k=>l.includes(k)))return aiANS.adminLouis;if(aiKB.adminKing.some(k=>l.includes(k)))return aiANS.adminKing;if(aiKB.allAdmin.some(k=>l.includes(k)))return aiANS.allAdmin;if(aiKB.biodata.some(k=>l.includes(k)))return typeof aiANS.biodata==='function'?aiANS.biodata():aiANS.biodata;if(aiKB.cariMember.some(k=>l.includes(k)))return aiANS.cariMember(l);for(const[k,kws]of Object.entries(aiKB)){if(Array.isArray(kws)&&kws.some(kw=>l.includes(kw))&&aiANS[k]){const v=aiANS[k];return typeof v==='function'?v(l):v;}}return 'Maaf, saya belum tahu tentang itu!\n\nCoba tanya:\n• Siapa member NUSACYBERA?\n• Tentang Owner / Admin?\n• Cara join?\n• Fitur apa saja?\n• Kontak admin?';}
+function aiAddMsg(txt,isUser){const chat=document.getElementById('aiChatBox');const d=document.createElement('div');d.style.cssText=`display:flex;gap:8px;margin-bottom:10px;${isUser?'flex-direction:row-reverse;':''}`;const av=document.createElement('div');av.style.cssText=`width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0;${isUser?'background:rgba(124,92,252,0.15);border:1px solid rgba(124,92,252,0.3);':'background:rgba(79,172,254,0.1);border:1px solid rgba(79,172,254,0.25);'}`;av.innerHTML=isUser?'&#128100;':'&#129302;';const bub=document.createElement('div');bub.style.cssText=`max-width:80%;padding:9px 12px;border-radius:12px;font-family:'DM Sans',sans-serif;font-size:13px;line-height:1.6;${isUser?'background:rgba(124,92,252,0.12);border:1px solid rgba(124,92,252,0.2);color:#f0f2ff;border-radius:12px 12px 3px 12px;':'background:rgba(79,172,254,0.07);border:1px solid rgba(79,172,254,0.15);color:#d0d8ff;border-radius:12px 12px 12px 3px;'}`;bub.innerHTML=txt.replace(/\n/g,'<br/>');d.appendChild(av);d.appendChild(bub);chat.appendChild(d);chat.scrollTop=chat.scrollHeight;}
+function aiShowTyping(){const chat=document.getElementById('aiChatBox');const d=document.createElement('div');d.id='aiTyping';d.style.cssText='display:flex;gap:8px;margin-bottom:10px;';d.innerHTML=`<div style="width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;background:rgba(79,172,254,0.1);border:1px solid rgba(79,172,254,0.25);">&#129302;</div><div style="padding:10px 14px;background:rgba(79,172,254,0.07);border:1px solid rgba(79,172,254,0.15);border-radius:12px 12px 12px 3px;display:flex;gap:5px;align-items:center;"><span style="width:6px;height:6px;border-radius:50%;background:#4facfe;display:inline-block;animation:tdot 1.2s ease-in-out infinite;"></span><span style="width:6px;height:6px;border-radius:50%;background:#4facfe;display:inline-block;animation:tdot 1.2s ease-in-out 0.2s infinite;"></span><span style="width:6px;height:6px;border-radius:50%;background:#4facfe;display:inline-block;animation:tdot 1.2s ease-in-out 0.4s infinite;"></span></div>`;chat.appendChild(d);chat.scrollTop=chat.scrollHeight;}
+function aiSendMsg(){const inp=document.getElementById('aiMsgInp');const msg=inp.value.trim();if(!msg)return;aiAddMsg(msg,true);inp.value='';aiShowTyping();setTimeout(()=>{const t=document.getElementById('aiTyping');if(t)t.remove();aiAddMsg(getAIReply(msg),false);},800+Math.random()*400);}
+function aiQuick(q){document.getElementById('aiMsgInp').value=q;aiSendMsg();}
+function toggleAI(){const box=document.getElementById('aiWindow');const isOpen=box.style.display==='flex';box.style.display=isOpen?'none':'flex';if(!isOpen){document.getElementById('aiMsgInp').focus();}}
+</script>
+
+<style>
+@keyframes tdot{0%,60%,100%{transform:translateY(0);opacity:0.3;}30%{transform:translateY(-4px);opacity:1;}}
+@keyframes fabPulse{0%,100%{box-shadow:0 0 0 0 rgba(79,172,254,0.4);}70%{box-shadow:0 0 0 12px rgba(79,172,254,0);}}
+@keyframes winIn{from{opacity:0;transform:translateY(20px) scale(0.95);}to{opacity:1;transform:translateY(0) scale(1);}}
+.ai-fab{position:fixed;bottom:24px;right:24px;z-index:300;width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,var(--purple),var(--blue));border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:24px;box-shadow:0 4px 20px rgba(124,92,252,0.4);animation:fabPulse 2.5s infinite;transition:transform 0.2s;}
+.ai-fab:hover{transform:scale(1.1);}
+.ai-fab-badge{position:absolute;top:-2px;right:-2px;width:16px;height:16px;border-radius:50%;background:var(--green);border:2px solid var(--bg);display:flex;align-items:center;justify-content:center;}
+.ai-fab-dot{width:6px;height:6px;border-radius:50%;background:#fff;animation:dp 2s infinite;}
+.ai-window{position:fixed;bottom:92px;right:20px;z-index:300;width:320px;max-height:480px;background:rgba(13,15,26,0.97);border:1px solid rgba(79,172,254,0.2);border-radius:20px;display:none;flex-direction:column;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,0.5);animation:winIn 0.3s ease both;backdrop-filter:blur(20px);}
+.ai-win-hd{padding:14px 16px;background:linear-gradient(135deg,rgba(124,92,252,0.15),rgba(79,172,254,0.1));border-bottom:1px solid rgba(79,172,254,0.15);display:flex;align-items:center;gap:10px;}
+.ai-win-av{width:36px;height:36px;border-radius:50%;background:rgba(79,172,254,0.1);border:1.5px solid rgba(79,172,254,0.3);display:flex;align-items:center;justify-content:center;font-size:18px;animation:aiGl 3s ease-in-out infinite;}
+@keyframes aiGl{0%,100%{box-shadow:0 0 10px rgba(79,172,254,0.2);}50%{box-shadow:0 0 20px rgba(79,172,254,0.5);}}
+.ai-win-info{flex:1;}
+.ai-win-name{font-family:'Syne',sans-serif;font-size:13px;font-weight:700;color:var(--white);letter-spacing:1px;}
+.ai-win-sub{font-family:'JetBrains Mono',monospace;font-size:8px;color:rgba(79,172,254,0.5);letter-spacing:1px;margin-top:1px;}
+.ai-win-close{width:28px;height:28px;border-radius:8px;background:rgba(255,255,255,0.05);border:1px solid var(--border);color:var(--dim2);font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 0.2s;}
+.ai-win-close:hover{background:rgba(248,87,166,0.1);color:var(--pink);}
+.ai-chatbox{flex:1;overflow-y:auto;padding:14px;scrollbar-width:thin;scrollbar-color:rgba(79,172,254,0.2) transparent;max-height:280px;}
+.ai-quick-wrap{padding:8px 12px;display:flex;flex-wrap:wrap;gap:5px;border-top:1px solid var(--border);}
+.ai-q-btn{padding:4px 10px;border-radius:14px;border:1px solid rgba(79,172,254,0.2);background:rgba(79,172,254,0.05);color:rgba(79,172,254,0.7);font-family:'JetBrains Mono',monospace;font-size:7px;letter-spacing:0.5px;cursor:pointer;transition:all 0.2s;white-space:nowrap;}
+.ai-q-btn:hover{background:rgba(79,172,254,0.12);color:var(--blue);}
+.ai-inp-area{padding:10px 12px;border-top:1px solid var(--border);display:flex;gap:8px;}
+.ai-msg-inp{flex:1;background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:10px;padding:8px 12px;color:var(--white);font-family:'DM Sans',sans-serif;font-size:13px;outline:none;transition:border-color 0.3s;}
+.ai-msg-inp:focus{border-color:rgba(79,172,254,0.35);}
+.ai-msg-inp::placeholder{color:var(--dim);}
+.ai-send-btn{width:34px;height:34px;border-radius:10px;border:none;background:linear-gradient(135deg,var(--purple),var(--blue));color:#fff;font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:opacity 0.2s;}
+.ai-send-btn:hover{opacity:0.85;}
+</style>
+
+<button class="ai-fab" onclick="toggleAI()" title="NC-AI Guide">
+  &#129302;
+  <div class="ai-fab-badge"><div class="ai-fab-dot"></div></div>
+</button>
+
+<div class="ai-window" id="aiWindow">
+  <div class="ai-win-hd">
+    <div class="ai-win-av">&#129302;</div>
+    <div class="ai-win-info">
+      <div class="ai-win-name">NC-AI GUIDE</div>
+      <div class="ai-win-sub">&#9670; ASISTEN VIRTUAL NUSACYBERA</div>
+    </div>
+    <button class="ai-win-close" onclick="toggleAI()">&#10005;</button>
+  </div>
+  <div class="ai-chatbox" id="aiChatBox">
+    <div style="display:flex;gap:8px;margin-bottom:10px;">
+      <div style="width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;background:rgba(79,172,254,0.1);border:1px solid rgba(79,172,254,0.25);flex-shrink:0;">&#129302;</div>
+      <div style="max-width:80%;padding:9px 12px;background:rgba(79,172,254,0.07);border:1px solid rgba(79,172,254,0.15);border-radius:12px 12px 12px 3px;font-family:'DM Sans',sans-serif;font-size:13px;line-height:1.6;color:#d0d8ff;">Halo fam! Saya NC-AI &#8212; asisten virtual NUSACYBERA.<br/><br/>Saya bisa bantu info tentang komunitas &amp; biodata member! Tanya apa saja! &#128640;</div>
+    </div>
+  </div>
+  <div class="ai-quick-wrap">
+    <div class="ai-q-btn" onclick="aiQuick('Siapa member NUSACYBERA?')">&#128101; Member?</div>
+    <div class="ai-q-btn" onclick="aiQuick('Tentang Owner Risky')">&#128081; Owner?</div>
+    <div class="ai-q-btn" onclick="aiQuick('Cara join NUSACYBERA?')">&#128640; Join?</div>
+    <div class="ai-q-btn" onclick="aiQuick('Fitur apa saja?')">&#9889; Fitur?</div>
+    <div class="ai-q-btn" onclick="aiQuick('Kontak admin?')">&#128222; Kontak?</div>
+    <div class="ai-q-btn" onclick="aiQuick('Siapa yang buat kamu?')">&#129302; Pembuat?</div>
+  </div>
+  <div class="ai-inp-area">
+    <input class="ai-msg-inp" id="aiMsgInp" type="text" placeholder="Tanya sesuatu..." onkeydown="if(event.key==='Enter')aiSendMsg()"/>
+    <button class="ai-send-btn" onclick="aiSendMsg()">&#10148;</button>
+  </div>
+</div>
+</body>
+</html>
